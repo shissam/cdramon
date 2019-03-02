@@ -9,9 +9,15 @@ seem to have gotten those for free given that I had virtualbox installed
 which has a dkms module.  for raspberrypi with Navio2 hat, the emlib
 distro already had the linux tools there.
 
-## Compiling
+### Kernel header (raspbian)
+
+`sudo apt-get install raspberrypi-kernel-headers`
+
+### Kernel header (debian/ubuntu)
 
 instructions forthcoming!
+
+## Compiling
 
 basically:
 

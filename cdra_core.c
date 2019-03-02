@@ -1,3 +1,4 @@
+#include <linux/version.h>   // needed to switch between vfs_ / kernel_read
 #include <linux/module.h>    // included for all kernel modules
 #include <linux/kernel.h>    // included for KERN_INFO
 #include <linux/init.h>      // included for __init and __exit macros
@@ -475,7 +476,11 @@ driver_file_read(struct file *file, unsigned long long offset, unsigned char *da
 #endif
   //printk(KERN_INFO "set position to read %llx\n", pos);
 
+#if LINUX_VERSION_CODE < KERNEL_VERSION(4,14,14)
   ret = vfs_read(file, data, size, &pos);
+#else
+  ret = kernel_read(file, data, size, &pos);
+#endif
   //vfs_fsync(file, 0);
 #if 1
   set_fs(oldfs);
