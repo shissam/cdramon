@@ -21,10 +21,13 @@ instructions forthcoming!
 
 basically:
 
+```
    $ make
+```
 
 ## Example/Debug
 
+```
    $ sudo insmod cdra_core.ko
    $ dmesg | tail -2
      [1233682.450736] Hello CDRA here! (s=127.0.0.1:1511 (off))
@@ -47,9 +50,11 @@ basically:
 
    $ echo "0" > rcinDebug
    $ echo $(cat /sys/kernel/cdra/rcin/ch0)
+```
 
 ### same behavior for adc
 
+```
    $ sudo lsmod |grep cdra
      cdra_core              16384  0
 
@@ -57,5 +62,6 @@ basically:
    $ dmesg|tail -2
      [1233929.033524] kthread_should_stop: ret=0 sd=0 pkts=(0/0) close=0
      [1233929.033533] Stopping CDRA module! (s=127.0.0.1:1511 (off), task=0)
+```
 
 
